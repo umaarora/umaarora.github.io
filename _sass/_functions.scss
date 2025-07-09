@@ -62,7 +62,7 @@ $modules: (
     }
 
     @else if unit($value)=="px" {
-      @return calc($value / 1px);
+      @return $value / 1px;
     }
 
     @else if unit($value)=="pt" {
