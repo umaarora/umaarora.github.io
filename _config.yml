@@ -11,17 +11,17 @@
 title: 'Uma Arora'
 
 # The slogan describes your website and is used on homepage in <title> and other important places
-slogan: 'Applying innovative computational strategies to unravel the intricacies of biological systems'
+slogan: 'A Flexible Theme for Jekyll'
 
 # The description is used on homepage and in the footer to quickly describe your website. Use a maximum of 150 characters for SEO-purposes.
-description: '»PhD-trained Computational Biologist« with nearly 3 years combined academic and industry experience in genomics, bioinformatics pipeline development, and translational bioinformatics. Proven track record of leading interdisciplinary research projects across genomics, bioinformatics, and translational science. Skilled in R, Python, and cloud/HPC infrastructure. Adept at designing and delivering actionable insights from high-dimensional data and communicating complex findings to collaborators from diverse scientific backgrounds. Passionate about applying computational solutions to improve genomic diagnostics and advance precision medicine.'
+description: '»Feeling Responsive« is a responsive theme for Jekyll based on the fabulous foundation framework with beautiful typography and a bright color palette.'
 
 # The credits show up in the includes/_footer.html – It would be nice of you to leave a link to Phlow or Feeling Responsive as a thank you :)
 credits: '<p>Created with &hearts; by <a href="http://phlow.de/">Phlow</a> with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> based on <a href="http://phlow.github.io/feeling-responsive/">Feeling Responsive</a>.</p>'
 
 # Main author of the website
 # See > authors.yml
-author: Uma Arora
+author: phlow
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
