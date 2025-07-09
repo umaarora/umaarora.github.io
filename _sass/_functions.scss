@@ -51,30 +51,41 @@ $modules: (
 /// https://github.com/sass/sass/issues/533 (right now this is a work around)
 // STRIP UNIT
 // It strips the unit of measure and returns it
+// chat gpt suggestion
 @function strip-unit($value) {
-  @if type-of($value)=="number" {
-    @if (unitless($value)) {
-      @return $value;
-    }
-
-    @else if unit($value)=="em" {
-      @return calc($value / 1em);
-    }
-
-    @else if unit($value)=="px" {
-      @return calc($value / 1px);
-    }
-
-    @else if unit($value)=="pt" {
-      @return calc($value / 1pt);
-    }
+  @if type-of($value) == "number" {
+    @return $value / ($value * 0 + 1);
   }
 
-  @else {
-    @warn "Not a number value: #{$value}";
-    @return $value;
-  }
+  @warn "Not a number: #{$value}";
+  @return $value;
 }
+
+// old function
+// @function strip-unit($value) {
+//  @if type-of($value)=="number" {
+//    @if (unitless($value)) {
+//      @return $value;
+//    }
+//
+//    @else if unit($value)=="em" {
+//      @return calc($value / 1em);
+//    }
+//
+//    @else if unit($value)=="px" {
+//      @return calc($value / 1px);
+//    }
+//
+//    @else if unit($value)=="pt" {
+//      @return calc($value / 1pt);
+//    }
+//  }
+//
+//  @else {
+//    @warn "Not a number value: #{$value}";
+//    @return $value;
+//  }
+//}
 
 // TEXT INPUT TYPES
 
@@ -110,7 +121,7 @@ $modules: (
 
 // CONVERT TO REM
 @function convert-to-rem($value, $base-value: $rem-base) {
-  $value: calc(strip-unit($value) / strip-unit($base-value) * 1rem);
+  $value: calc(#{strip-unit($value) / strip-unit($base-value)} * 1rem);
 
   @if ($value ==0rem) {
     $value: 0;
