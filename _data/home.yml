@@ -2,11 +2,11 @@ navbar_entries:
   - title: about
     url: about
 
-  - title: blog
-    url: blog
+  - title: publications
+    url: publications
 
   - title: website
-    url: https://www.abhinav.co
+    url: website
 
 project_entries:
   - title: Project 1
