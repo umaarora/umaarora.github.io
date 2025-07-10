@@ -1,8 +1,8 @@
-title: Moonwalk
-author: Abhinav Saxena
-url: https://www.abhinavsaxena.com/moonwalk # root address of the site
+title: Uma Arora
+author: Abhinav Saxena edited by Uma Arora
+url: https://umaarora.github.io/ # root address of the site
 description: > # description of the site (multiple lines allowed)
-  Moonwalk is a fast and elegant Jekyll theme with a clean dark mode. It comes with horizontal list (for navbar and footer), card list (for portfolio), and a generic vertical list. It is very easy to modify in case you want to build over it - please see _layouts/home.html to do that.
+  Computational biologist with a PhD and 2+ years of experience in genomics analysis, including single-cell and multi-omics data analysis, particularly in cancer biology and hematopoiesis. Proven track record of leading interdisciplinary research projects across genomics, bioinformatics, and translational science. Skilled in R, Python, and cloud/HPC infrastructure. Adept at designing and delivering actionable insights from high-dimensional data and communicating complex findings to collaborators from diverse scientific backgrounds. 
 
 permalink: /:slug
 
