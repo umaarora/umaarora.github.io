@@ -121,9 +121,8 @@ $modules: (
 
 // CONVERT TO REM
 // chat gpt suggestion
-@function convert-to-rem($value, $base-value: $rem-base, $multiplier: 1) {
-  $expression: strip-unit($value) / strip-unit($base-value) * $multiplier;
-  @return calc(#{$expression} * 1rem);
+@function convert-to-rem($value, $base-value: $rem-base) {
+  @return strip-unit($value) / strip-unit($base-value) * 1rem;
 }
 
 
