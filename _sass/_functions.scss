@@ -120,16 +120,24 @@ $modules: (
 }
 
 // CONVERT TO REM
-@function convert-to-rem($value, $base-value: $rem-base) {
-  $value: calc(#{strip-unit($value) / strip-unit($base-value)} * 1rem);
-
-  @if ($value ==0rem) {
-    $value: 0;
-  }
-
-  // Turn 0rem into 0
-  @return $value;
+// chat gpt suggestion
+@function convert-to-rem($value, $base-value: $rem-base, $multiplier: 1) {
+  $expression: strip-unit($value) / strip-unit($base-value) * $multiplier;
+  @return calc(#{$expression} * 1rem);
 }
+
+
+// old function
+//@function convert-to-rem($value, $base-value: $rem-base) {
+//  $value: calc(#{strip-unit($value) / strip-unit($base-value)} * 1rem);
+//
+//  @if ($value ==0rem) {
+//    $value: 0;
+//  }
+//
+//  // Turn 0rem into 0
+//  @return $value;
+//}
 
 @function data($attr) {
   @if $namespace {
