@@ -5,8 +5,11 @@ navbar_entries:
   - title: publications
     url: publications
 
-  - title: website
-    url: website
+  - title: midnight chef
+    url: midnightchef
+
+  - title: f around and find out
+    url: faroundandfindout
 
 project_entries:
   - title: Project 1
@@ -31,9 +34,9 @@ project_entries:
     desc: Moonwalk also has horizontal list (used in header and footer)
     highlight: WIP
 
-  - title: Project 6
+  - title: Kmer Digging
     url: overview-post
-    desc: It also has a scalable vertical list (in case you need it)
+    desc: My first project in graduate school
 
 old_project_entries:
   - title: Soopr
