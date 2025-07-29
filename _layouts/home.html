@@ -8,10 +8,26 @@ layout: default
   <div class="dashed"></div>
 {% endif %}
 
-  <h1>{{ site.title }}</h1>
-  {% if site.theme_config.show_description == true %}
-    <p>{{ site.description }}</p>
+<!--added on 7/29/25 to place image on the right of name and wrap text on the left of the image -->
+<div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 250px;">
+    <h1>{{ site.title }}</h1>
+    {% if site.theme_config.show_description == true %}
+      <p>{{ site.description }}</p>
+    {% endif %}
+  </div>
+
+  {% if site.profile_image %}
+    <div style="flex-shrink: 0;">
+      <img src="{{ site.profile_image }}" alt="Profile picture" style="max-width: 200px; border-radius: 10px;" />
+    </div>
   {% endif %}
+</div>
+
+<!--  <h1>{{ site.title }}</h1> -->
+<!--  {% if site.theme_config.show_description == true %} -->
+<!--    <p>{{ site.description }}</p> -->
+<!--  {% endif %} -->
 </header>
 
 {{ content }}
