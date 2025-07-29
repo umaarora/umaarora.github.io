@@ -1,5 +1,5 @@
 title: Uma Arora
-author: Abhinav Saxena edited by Uma Arora
+author: Uma Arora
 url: https://umaarora.github.io/ # root address of the site
 description: > # description of the site (multiple lines allowed)
   Computational biologist with a PhD and 2+ years of experience in genomics analysis, including single-cell and multi-omics data analysis, particularly in cancer biology and hematopoiesis. Proven track record of leading interdisciplinary research projects across genomics, bioinformatics, and translational science. Skilled in R, Python, and cloud/HPC infrastructure. Adept at designing and delivering actionable insights from high-dimensional data and communicating complex findings to collaborators from diverse scientific backgrounds. 
@@ -7,10 +7,6 @@ description: > # description of the site (multiple lines allowed)
 permalink: /:slug
 
 favicon: "./logo.png" # relative path to site's favicon
-
-twitter:
-    username: abhinav # update or delete this
-    card: summary_large_image
 
 #theme: moonwalk # if you are using GitHub Pages, change it to remote_theme: abhinavs/moonwalk
 remote_theme: abhinavs/moonwalk
@@ -37,9 +33,6 @@ theme_config:
     title_misc_list: Details
     title_blog: Blog
     title_old_projects: Old Projects
-
-soopr:
-  publish_token: "" # sign up at https://www.soopr.co to get your publish token and personalize share and reaction options
 
 highlighter: rouge
 
