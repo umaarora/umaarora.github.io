@@ -12,49 +12,43 @@ navbar_entries:
     url: faroundandfindout
 
 project_entries:
-  - title: Project 1
+  - title: Quantifying rare variant risk
     url: overview-post
-    desc: This is an example project, configured in _data/home.yml
+    desc: Utilizing the UK Biobank to estimate risk of rare ClinVar variants for MPN
 
-  - title: Project 2
+  - title: META GWAS
     url: overview-post
-    desc: Projects are shown in card layout
+    desc: Identify novel variants responsible for fetal hemoglobin regulation and MPN
 
-  - title: Project 3
+  - title: Rare Variant Association
     url: overview-post
-    desc: You can control visibility from _config.yml file
+    desc: Discovering novel mechanisms underlying risk for myeloid malignancies
 
-  - title: Project 4
+  - title: CENP-A ChIP-seq
     url: overview-post
     desc: This project uses highlight markup, configured in _data/home.yml
-    highlight: WIP
 
-  - title: Project 5
+  - title: K-mer estimation of mouse centromere size
     url: overview-post
     desc: Moonwalk also has horizontal list (used in header and footer)
-    highlight: WIP
 
-  - title: Kmer Digging
+  - title: Skin microbiome and acne
     url: overview-post
-    desc: My first project in graduate school
+    desc: How porphyrin production can influence inflammation by the skin microbiome
 
 old_project_entries:
-  - title: Soopr
-    url: https://www.soopr.co
-    desc: Delight your readers - add beautiful share and like buttons easily to your websites 
+  - title: Conservation Education
+    url: https://www.neaq.org/
+    desc: Educate visitors about the importance of protecting the blue planet  
     highlight: NEW
 
-  - title: Cookie
-    url: https://github.com/abhinavs/cookie
-    desc: An open source landing website with supporting pages and integrated blog
+  - title: Carpentries Instructor
+    url: https://carpentries.org/
+    desc: Teaching foundational data science and coding skills to researchers worldwide
 
-  - title: Moonwalk
-    url: https://github.com/abhinavs/moonwalk
-    desc: A fast and minimalist Jekyll blog theme with clean dark mode
-
-  - title: Humangous
-    url: https://www.humangous.co
-    desc: The better people know you, the better they collaborate
+  - title: Phytoplankton Monitoring
+    url: https://www.anecdata.org/projects/view/139/about
+    desc: Monitoring harmful algal blooms in the gulf of Maine
 
 footer_entries:
   - title: github
