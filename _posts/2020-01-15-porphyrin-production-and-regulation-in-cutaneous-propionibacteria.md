@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: [soopr, config]
+tags: [molecular biology, bacterial culture, manuscript writing and editing]
 permalink: porphyrin-production-and-regulation-in-cutaneous-propionibacteria
 ---
 
