@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: F Around and Find Out
 permalink: /faroundandfindout/
 ---

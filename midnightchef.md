@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Midnight Chef
 permalink: /midnightchef/
 ---
