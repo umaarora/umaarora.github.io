@@ -13,11 +13,11 @@ navbar_entries:
 
 project_entries:
   - title: Quantifying rare variant risk
-    url: portfolio/rare-variant-risk
+    url: _data/portfolio/rare-variant-risk
     desc: Utilizing the UK Biobank to estimate risk of rare ClinVar variants for MPN
 
   - title: META GWAS
-    url: portfolio/overview-post
+    url: _data/portfolio/overview-post
     desc: Identify novel variants responsible for fetal hemoglobin regulation and MPN
 
   - title: Rare Variant Association
