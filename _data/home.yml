@@ -13,11 +13,11 @@ navbar_entries:
 
 project_entries:
   - title: Quantifying rare variant risk
-    url: overview-post
+    url: portfolio/rare-variant-risk
     desc: Utilizing the UK Biobank to estimate risk of rare ClinVar variants for MPN
 
   - title: META GWAS
-    url: overview-post
+    url: portfolio/overview-post
     desc: Identify novel variants responsible for fetal hemoglobin regulation and MPN
 
   - title: Rare Variant Association
@@ -26,11 +26,11 @@ project_entries:
 
   - title: CENP-A ChIP-seq
     url: overview-post
-    desc: This project uses highlight markup, configured in _data/home.yml
+    desc: CENP-A sequence association landscape differences between mouse strains
 
   - title: K-mer estimation of mouse centromere size
     url: overview-post
-    desc: Moonwalk also has horizontal list (used in header and footer)
+    desc: My first independent project in graduate school
 
   - title: Skin microbiome and acne
     url: overview-post
@@ -39,7 +39,7 @@ project_entries:
 old_project_entries:
   - title: Conservation Education
     url: https://www.neaq.org/
-    desc: Educate visitors about the importance of protecting the blue planet  
+    desc: Educate New England Aquarium visitors about the importance of protecting the blue planet  
     highlight: NEW
 
   - title: Carpentries Instructor
@@ -53,6 +53,9 @@ old_project_entries:
 footer_entries:
   - title: github
     url: https://github.com/umaarora
+  
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/uma-arora-62600184/
 
   - title: feed
     url: feed.xml
