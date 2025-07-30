@@ -17,11 +17,11 @@ project_entries:
     desc: Utilizing the UK Biobank to estimate risk of rare ClinVar variants for MPN
 
   - title: META GWAS
-    url: overview-post
+    url: meta-gwas
     desc: Identify novel variants responsible for fetal hemoglobin regulation and MPN
 
   - title: Rare Variant Association
-    url: overview-post
+    url: inherited-blood-cancer-predisposition-through-altered-transcriptional-elongation
     desc: Discovering novel mechanisms underlying risk for myeloid malignancies
 
   - title: CENP-A ChIP-seq
