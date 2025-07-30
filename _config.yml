@@ -2,7 +2,7 @@ title: Uma Arora
 author: Uma Arora
 url: https://umaarora.github.io/ # root address of the site
 description: > # description of the site (multiple lines allowed)
-  Computational biologist with a PhD and 2+ years of experience in genomics analysis, including single-cell and multi-omics data analysis, particularly in cancer biology and hematopoiesis. Proven track record of leading interdisciplinary research projects across genomics, bioinformatics, and translational science. Skilled in R, Python, and cloud/HPC infrastructure. Adept at designing and delivering actionable insights from high-dimensional data and communicating complex findings to collaborators from diverse scientific backgrounds. 
+  I’m a computational biologist with a PhD in genetics and a passion for making sense of complex biological data. My work bridges evolutionary genomics and cancer biology—whether it’s decoding repetitive DNA in obscure mouse centromeres or uncovering hidden signals in large-scale human cohort data. Over the past few years, I’ve applied machine learning, multi-omics integration, and statistical genetics to tackle questions in hematopoiesis, early cancer detection, and translational research. I enjoy building scalable pipelines, wrangling high-dimensional datasets, and turning raw sequencing files into biological insights. Proficient in Python, R, and cloud/HPC systems, I thrive in interdisciplinary teams and love collaborating with wet-lab scientists, clinicians, and fellow data nerds alike.
 
 permalink: /:slug
 
