@@ -11,5 +11,4 @@ Most recently, I worked as a Computational Biologist at [Foundation Medicine](ht
 
 I hold a B.S. in Psychobiology and Marine Biology from the University of California, Los Angeles. I was involved in empathy research in Dr. Matthew Lieberman’s [Social Cognitive Neuroscience Lab](https://www.uclascnlab.com/), as well as vertebrate morphology research in [Dr. Blaire Van Valkenburgh’s lab](https://sites.lifesci.ucla.edu/eeb-vanvalkenburgh/blaire/). 
 
-<embed src="assets/Arora_Resume_website.pdf" type="application/pdf" width="100%" height="600px" />
-
+[Here is my Resume](assets/Arora_Resume_website.pdf)
