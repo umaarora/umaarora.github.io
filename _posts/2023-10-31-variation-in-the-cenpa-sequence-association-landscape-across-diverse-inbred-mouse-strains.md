@@ -1,5 +1,6 @@
 ---
 layout: post
+permalink: variation-in-the-cenpa-sequence-association-landscape-across-diverse-inbred-mouse-strains
 ---
 
 Performed reference-independent, customized k-mer based analyses to characterize the differences in CENP-A sequence association landscape across diverse inbred strains.

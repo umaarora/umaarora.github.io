@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: [soopr, config]
+permalink: porphyrin-production-and-regulation-in-cutaneous-propionibacteria
 ---
 
 Shortly after graduating from UCLA, I was a research assistant in [Dr. Huiying Li's](https://pharmacology.ucla.edu/people/huiying-li) lab in the Molecular and Medical Pharmacolody Department at UCLA working on skin microbiome research. 
