@@ -1,7 +1,5 @@
 ---
 layout: post
-author: Abhinav Saxena
-tags: [overview, moonwalk]
 permalink: /overview-post
 ---
 
