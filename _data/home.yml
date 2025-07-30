@@ -25,15 +25,15 @@ project_entries:
     desc: Discovering novel mechanisms underlying risk for myeloid malignancies
 
   - title: CENP-A ChIP-seq
-    url: overview-post
+    url: variation-in-the-cenpa-sequence-association-landscape-across-diverse-inbred-mouse-strains
     desc: CENP-A sequence association landscape differences between mouse strains
 
   - title: K-mer estimation of mouse centromere size
-    url: overview-post
+    url: population-and-subspecies-diversity-at-mouse-centromeres
     desc: My first independent project in graduate school
 
   - title: Skin microbiome and acne
-    url: overview-post
+    url: porphyrin-production-and-regulation-in-cutaneous-propionibacteria
     desc: How porphyrin production can influence inflammation by the skin microbiome
 
 old_project_entries:
