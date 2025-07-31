@@ -28,16 +28,11 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     <img id="map-img" src="/assets/images/world-map.jpg"
          style="width:100%; position: sticky; top: 0; transform-origin: top left;" />
 
-<!-- 🔧 TEST PIN HERE -->
-    <a href="#" class="map-pin" style="display: block; left: 1000px; top: 500px;">
-      <img src="/assets/images/summit.jpeg" />
-    </a>
-
 <!-- ICONS -->
     <a href="/heron-island" class="map-pin" id="pin-heron" target="_blank">
       <img src="/assets/images/scuba.jpg" alt="Heron Island" />
     </a>
-    <a href="/kilimanjaro" class="map-pin" id="pin-kili" target="_blank">
+    <a href="https://bangaloremirror.indiatimes.com/opinion/sunday-read/on-top-of-the-world/articleshow/53890829.cms" class="map-pin" id="pin-kili" target="_blank">
       <img src="/assets/images/summit.jpeg" alt="Kilimanjaro" />
     </a>
     <a href="/haleakala" class="map-pin" id="pin-haleakala" target="_blank">
@@ -85,61 +80,32 @@ pins.montblanc.style.top = "490px";
 pins.white.style.left = "1331px";
 pins.white.style.top = "426px";
 
+// Create scroll regions (each region = 100vh)
+const zooms = [
+  { scale: 6.5, x: -2304, y: -1064, pin: pins.heron },
+  { scale: 6.5, x: -1565, y: -788, pin: pins.kili },
+  { scale: 7,   x: -596,  y: -703, pin: pins.haleakala },
+  { scale: 6.5, x: -1512, y: -490, pin: pins.montblanc },
+  { scale: 6.5, x: -1331, y: -426, pin: pins.white }
+];
 
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#scroll-map-wrapper",
-    start: "top top",
-    end: "bottom top", // stop at end of wrapper
-    scrub: true,
-    pin: "#scroll-map", // pin just the image container
-    anticipatePin: 1
-  }
-});
-
-// Animation + pin control
-tl.to(map, {
-  scale: 6.5,
-  x: -2304,
-  y: -1064,
-  duration: 1,
-  onStart: () => pins.heron.style.display = "block",
-  onReverseComplete: () => pins.heron.style.display = "none"
-})
-.to(map, {
-  scale: 6.5,
-  x: -1565,
-  y: -788,
-  duration: 1,
-  onStart: () => pins.kili.style.display = "block",
-  onReverseComplete: () => pins.kili.style.display = "none"
-})
-.to(map, {
-  scale: 7,
-  x: -596,
-  y: -703,
-  duration: 1,
-  onStart: () => pins.haleakala.style.display = "block",
-  onReverseComplete: () => pins.haleakala.style.display = "none"
-})
-.to(map, {
-  scale: 6.5,
-  x: -1512,
-  y: -490,
-  duration: 1,
-  onStart: () => pins.montblanc.style.display = "block",
-  onReverseComplete: () => pins.montblanc.style.display = "none"
-})
-.to(map, {
-  scale: 6.5,
-  x: -1331,
-  y: -426,
-  duration: 1,
-  onStart: () => pins.white.style.display = "block",
-  onReverseComplete: () => pins.white.style.display = "none",
-  onComplete: () => {
-    gsap.set(map, { clearProps: "position,top,left" }); // optional reset safety
-  }
+// Apply zoom + show/hide pin
+zooms.forEach((z, i) => {
+  gsap.to(map, {
+    scrollTrigger: {
+      trigger: "#scroll-map-wrapper",
+      start: `${i * 100}vh top`,
+      end: `${(i + 1) * 100}vh top`,
+      scrub: true,
+      onEnter: () => z.pin.style.display = "block",
+      onLeave: () => z.pin.style.display = "none",
+      onEnterBack: () => z.pin.style.display = "block",
+      onLeaveBack: () => z.pin.style.display = "none",
+    },
+    scale: z.scale,
+    x: z.x,
+    y: z.y,
+    ease: "none"
+  });
 });
 </script>
-
