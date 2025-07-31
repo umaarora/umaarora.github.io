@@ -7,7 +7,7 @@ permalink: /faroundandfindout/
 Pushing limits, chasing peaks, and collecting stories the hard way.
 
 <div id="scroll-map" style="position: relative; height: 200vh;">
-  <img id="map-img" src="/assets/world-map.jpg" style="width:100%; position: sticky; top:0;" />
+  <img id="map-img" src="/assets/images/world-map.jpg" style="width:100%; position: sticky; top:0;" />
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
