@@ -89,23 +89,70 @@ const zooms = [
   { scale: 6.5, x: -1331, y: -426, pin: pins.white }
 ];
 
-// Apply zoom + show/hide pin
-zooms.forEach((z, i) => {
-  gsap.to(map, {
-    scrollTrigger: {
-      trigger: "#scroll-map-wrapper",
-      start: `${i * 100}vh top`,
-      end: `${(i + 1) * 100}vh top`,
-      scrub: true,
-      onEnter: () => z.pin.style.display = "block",
-      onLeave: () => z.pin.style.display = "none",
-      onEnterBack: () => z.pin.style.display = "block",
-      onLeaveBack: () => z.pin.style.display = "none",
-    },
-    scale: z.scale,
-    x: z.x,
-    y: z.y,
-    ease: "none"
-  });
+// Hide all pins initially
+Object.values(pins).forEach(pin => pin.style.display = "none");
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#scroll-map-wrapper",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+    pin: "#scroll-map",
+    anticipatePin: 1
+  }
 });
+
+// Heron Island
+tl.set(pins.heron, { display: "block" }, 0)
+  .to(map, {
+    scale: 6.5,
+    x: -2304,
+    y: -1064,
+    duration: 1
+  }, 0)
+  .set(pins.heron, { display: "none" }, 1);
+
+// Kilimanjaro
+tl.set(pins.kili, { display: "block" }, 1)
+  .to(map, {
+    scale: 6.5,
+    x: -1565,
+    y: -788,
+    duration: 1
+  }, 1)
+  .set(pins.kili, { display: "none" }, 2);
+
+// Haleakala
+tl.set(pins.haleakala, { display: "block" }, 2)
+  .to(map, {
+    scale: 7,
+    x: -596,
+    y: -703,
+    duration: 1
+  }, 2)
+  .set(pins.haleakala, { display: "none" }, 3);
+
+// Mont Blanc
+tl.set(pins.montblanc, { display: "block" }, 3)
+  .to(map, {
+    scale: 6.5,
+    x: -1512,
+    y: -490,
+    duration: 1
+  }, 3)
+  .set(pins.montblanc, { display: "none" }, 4);
+
+// White Mountains
+tl.set(pins.white, { display: "block" }, 4)
+  .to(map, {
+    scale: 6.5,
+    x: -1331,
+    y: -426,
+    duration: 1
+  }, 4)
+  // Don't hide this one unless you want the final view cleared
+  .set(pins.white, { display: "none" }, 5);
+
 </script>
+
