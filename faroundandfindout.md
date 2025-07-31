@@ -28,21 +28,26 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     <img id="map-img" src="/assets/images/world-map.jpg"
          style="width:100%; position: sticky; top: 0; transform-origin: top left;" />
 
+<!-- 🔧 TEST PIN HERE -->
+    <a href="#" class="map-pin" style="display: block; left: 1000px; top: 500px;">
+      <img src="/assets/images/scuba.jpg" />
+    </a>
+
 <!-- ICONS -->
     <a href="/heron-island" class="map-pin" id="pin-heron" target="_blank">
-      <img src="/assets/images/scuba.jpeg" alt="Heron Island" />
+      <img src="/assets/images/scuba.jpg" alt="Heron Island" />
     </a>
     <a href="/kilimanjaro" class="map-pin" id="pin-kili" target="_blank">
       <img src="/assets/images/summit.jpeg" alt="Kilimanjaro" />
     </a>
     <a href="/haleakala" class="map-pin" id="pin-haleakala" target="_blank">
-      <img src="/assets/hike.png" alt="Haleakala" />
+      <img src="/assets/images/hike.jpg" alt="Haleakala" />
     </a>
     <a href="/mont-blanc" class="map-pin" id="pin-montblanc" target="_blank">
-      <img src="/assets/hike.png" alt="Mont Blanc" />
+      <img src="/assets/images/hike.jpg" alt="Mont Blanc" />
     </a>
     <a href="/white-mountains" class="map-pin" id="pin-white" target="_blank">
-      <img src="/assets/summit.png" alt="White Mountains" />
+      <img src="/assets/images/summit.jpeg" alt="White Mountains" />
     </a>
 
 
