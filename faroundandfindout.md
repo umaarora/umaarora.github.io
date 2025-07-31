@@ -30,7 +30,7 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
 
 <!-- 🔧 TEST PIN HERE -->
     <a href="#" class="map-pin" style="display: block; left: 1000px; top: 500px;">
-      <img src="/assets/images/scuba.jpg" />
+      <img src="/assets/images/summit.jpeg" />
     </a>
 
 <!-- ICONS -->
