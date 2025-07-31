@@ -20,36 +20,36 @@ const regions = [
   {
     scroll: "20%",
     zoom: 8,
-    x: -2200,
-    y: -1100,
+    x: -650,
+    y: -410,
     url: "/heron-island"
   },
   {
     scroll: "40%",
-    zoom: 7,
-    x: -900,
-    y: -800,
+    zoom: 7.5,
+    x: -250,
+    y: -330,
     url: "https://bangaloremirror.indiatimes.com/opinion/sunday-read/on-top-of-the-world/articleshow/53890829.cms"
   },
   {
     scroll: "60%",
     zoom: 8,
-    x: -400,
-    y: -400,
+    x: -480,
+    y: -290,
     url: "/haleakala"
   },
   {
     scroll: "80%",
     zoom: 8,
-    x: -950,
-    y: -500,
+    x: -130,
+    y: -220,
     url: "/mont-blanc"
   },
   {
     scroll: "100%",
     zoom: 7.5,
-    x: -1150,
-    y: -300,
+    x: -40,
+    y: -190,
     url: "/white-mountains"
   }
 ];
