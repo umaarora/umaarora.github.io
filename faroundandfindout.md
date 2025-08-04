@@ -74,20 +74,20 @@ function getScaleFactor() {
 function setPinPositions() {
   const scaleFactor = getScaleFactor();
 
-  pins.heron.style.left = `${2374 * scaleFactor}px`;
-  pins.heron.style.top = `${813 * scaleFactor}px`;
+  pins.heron.style.left = `${2159 * scaleFactor}px`;
+  pins.heron.style.top = `${655 * scaleFactor}px`;
 
-  pins.kili.style.left = `${1534 * scaleFactor}px`;
-  pins.kili.style.top = `${666 * scaleFactor}px`;
+  pins.kili.style.left = `${1544 * scaleFactor}px`;
+  pins.kili.style.top = `${661 * scaleFactor}px`;
 
-  pins.haleakala.style.left = `${175 * scaleFactor}px`;
-  pins.haleakala.style.top = `${499 * scaleFactor}px`;
+  pins.haleakala.style.left = `${170 * scaleFactor}px`;
+  pins.haleakala.style.top = `${482 * scaleFactor}px`;
 
-  pins.montblanc.style.left = `${1348 * scaleFactor}px`;
-  pins.montblanc.style.top = `${306 * scaleFactor}px`;
+  pins.montblanc.style.left = `${1343 * scaleFactor}px`;
+  pins.montblanc.style.top = `${313 * scaleFactor}px`;
 
-  pins.white.style.left = `${775 * scaleFactor}px`;
-  pins.white.style.top = `${330 * scaleFactor}px`;
+  pins.white.style.left = `${772 * scaleFactor}px`;
+  pins.white.style.top = `${329 * scaleFactor}px`;
 }
 
 window.addEventListener("load", setPinPositions);
@@ -97,11 +97,11 @@ window.addEventListener("resize", setPinPositions);
 function getZooms() {
   const scaleFactor = getScaleFactor();
   return [
-    { scale: 6.5, x: -2374 * scaleFactor, y: -813 * scaleFactor, pin: pins.heron },
-    { scale: 6.5, x: -1534 * scaleFactor, y: -666 * scaleFactor, pin: pins.kili },
-    { scale: 7,   x: -175  * scaleFactor, y: -499 * scaleFactor, pin: pins.haleakala },
-    { scale: 6.5, x: -1348 * scaleFactor, y: -306 * scaleFactor, pin: pins.montblanc },
-    { scale: 6.5, x: -775  * scaleFactor, y: -330 * scaleFactor, pin: pins.white }
+    { scale: 6.5, x: -2159 * scaleFactor, y: -655 * scaleFactor, pin: pins.heron },
+    { scale: 6.5, x: -1544 * scaleFactor, y: -661 * scaleFactor, pin: pins.kili },
+    { scale: 7,   x: -170  * scaleFactor, y: -482 * scaleFactor, pin: pins.haleakala },
+    { scale: 6.5, x: -1343 * scaleFactor, y: -313 * scaleFactor, pin: pins.montblanc },
+    { scale: 6.5, x: -772  * scaleFactor, y: -329 * scaleFactor, pin: pins.white }
   ];
 }
 
@@ -123,8 +123,8 @@ const tl = gsap.timeline({
 tl.set(pins.heron, { display: "block" }, 0)
   .to(map, {
     scale: 6.5 * getScaleFactor(),
-    x: -2374 * getScaleFactor(),
-    y: -813 * getScaleFactor(),
+    x: -2159 * getScaleFactor(),
+    y: -655 * getScaleFactor(),
     duration: 1
   }, 0)
   .set(pins.heron, { display: "none" }, 1);
@@ -133,8 +133,8 @@ tl.set(pins.heron, { display: "block" }, 0)
 tl.set(pins.kili, { display: "block" }, 1)
   .to(map, {
     scale: 6.5 * getScaleFactor(),
-    x: -1534 * getScaleFactor(),
-    y: -666 * getScaleFactor(),
+    x: -1544 * getScaleFactor(),
+    y: -661 * getScaleFactor(),
     duration: 1
   }, 1)
   .set(pins.kili, { display: "none" }, 2);
@@ -143,8 +143,8 @@ tl.set(pins.kili, { display: "block" }, 1)
 tl.set(pins.haleakala, { display: "block" }, 2)
   .to(map, {
     scale: 7 * getScaleFactor(),
-    x: -175 * getScaleFactor(),
-    y: -499 * getScaleFactor(),
+    x: -170 * getScaleFactor(),
+    y: -482 * getScaleFactor(),
     duration: 1
   }, 2)
   .set(pins.haleakala, { display: "none" }, 3);
@@ -153,8 +153,8 @@ tl.set(pins.haleakala, { display: "block" }, 2)
 tl.set(pins.montblanc, { display: "block" }, 3)
   .to(map, {
     scale: 6.5 * getScaleFactor(),
-    x: -1348 * getScaleFactor(),
-    y: -306 * getScaleFactor(),
+    x: -1343 * getScaleFactor(),
+    y: -313 * getScaleFactor(),
     duration: 1
   }, 3)
   .set(pins.montblanc, { display: "none" }, 4);
@@ -163,8 +163,8 @@ tl.set(pins.montblanc, { display: "block" }, 3)
 tl.set(pins.white, { display: "block" }, 4)
   .to(map, {
     scale: 6.5 * getScaleFactor(),
-    x: -775 * getScaleFactor(),
-    y: -330 * getScaleFactor(),
+    x: -772 * getScaleFactor(),
+    y: -329 * getScaleFactor(),
     duration: 1
   }, 4)
   // Don't hide this one unless you want the final view cleared
