@@ -7,28 +7,27 @@ permalink: /faroundandfindout/
 Pushing limits, chasing peaks, and collecting stories the hard way.
 
 <style>
-.map-pin {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  transform: translate(-50%, -100%);
-  display: none;
-  z-index: 10;
-}
+  .map-pin {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    transform: translate(-50%, -100%);
+    display: none;
+    z-index: 10;
+  }
 
-.map-pin img {
-  width: 100%;
-  height: auto;
-}
+  .map-pin img {
+    width: 100%;
+    height: auto;
+  }
 </style>
 
-
-<div id="scroll-map-wrapper" style="height: 600vh;">
+<div id="scroll-map-wrapper" style="height: 1000vh;">
   <div id="scroll-map" style="position: relative; height: 100vh;">
     <img id="map-img" src="/assets/images/world-map.jpg"
-         style="width:100%; position: sticky; top: 0; transform-origin: top left;" />
+         style="width:2560px; height:auto; position:sticky; top:0; transform-origin: top left;" />
 
-<!-- ICONS -->
+    <!-- ICONS -->
     <a href="/heron-island" class="map-pin" id="pin-heron" target="_blank">
       <img src="/assets/images/scuba.jpg" alt="Heron Island" />
     </a>
@@ -44,8 +43,6 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     <a href="/white-mountains" class="map-pin" id="pin-white" target="_blank">
       <img src="/assets/images/mountain.png" alt="White Mountains" />
     </a>
-
-
   </div>
 </div>
 
@@ -64,111 +61,83 @@ const pins = {
   white: document.getElementById("pin-white")
 };
 
-const naturalWidth = 2560; // natural pixel width of your image
+// Natural size of your image
+const naturalWidth = 2560;
 
 function getScaleFactor() {
   return map.clientWidth / naturalWidth;
 }
 
-// Set icon positions relative to the map (absolute inside container)
 function setPinPositions() {
-  const scaleFactor = getScaleFactor();
+  const scale = getScaleFactor();
+  pins.heron.style.left = `${2159 * scale}px`;
+  pins.heron.style.top = `${655 * scale}px`;
 
-  pins.heron.style.left = `${2159 * scaleFactor}px`;
-  pins.heron.style.top = `${655 * scaleFactor}px`;
+  pins.kili.style.left = `${1544 * scale}px`;
+  pins.kili.style.top = `${661 * scale}px`;
 
-  pins.kili.style.left = `${1544 * scaleFactor}px`;
-  pins.kili.style.top = `${661 * scaleFactor}px`;
+  pins.haleakala.style.left = `${170 * scale}px`;
+  pins.haleakala.style.top = `${482 * scale}px`;
 
-  pins.haleakala.style.left = `${170 * scaleFactor}px`;
-  pins.haleakala.style.top = `${482 * scaleFactor}px`;
+  pins.montblanc.style.left = `${1343 * scale}px`;
+  pins.montblanc.style.top = `${313 * scale}px`;
 
-  pins.montblanc.style.left = `${1343 * scaleFactor}px`;
-  pins.montblanc.style.top = `${313 * scaleFactor}px`;
-
-  pins.white.style.left = `${772 * scaleFactor}px`;
-  pins.white.style.top = `${329 * scaleFactor}px`;
+  pins.white.style.left = `${772 * scale}px`;
+  pins.white.style.top = `${329 * scale}px`;
 }
 
-window.addEventListener("load", setPinPositions);
-window.addEventListener("resize", setPinPositions);
-
-// Create scroll regions (each region = 100vh)
-function getZooms() {
-  const scaleFactor = getScaleFactor();
-  return [
-    { scale: 6.5, x: -2159 * scaleFactor, y: -655 * scaleFactor, pin: pins.heron },
-    { scale: 6.5, x: -1544 * scaleFactor, y: -661 * scaleFactor, pin: pins.kili },
-    { scale: 7,   x: -170  * scaleFactor, y: -482 * scaleFactor, pin: pins.haleakala },
-    { scale: 6.5, x: -1343 * scaleFactor, y: -313 * scaleFactor, pin: pins.montblanc },
-    { scale: 6.5, x: -772  * scaleFactor, y: -329 * scaleFactor, pin: pins.white }
-  ];
-}
-
-// Hide all pins initially
-Object.values(pins).forEach(pin => pin.style.display = "none");
-
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#scroll-map-wrapper",
-    start: "top top",
-    end: "bottom top",
-    scrub: true,
-    pin: "#scroll-map",
-    anticipatePin: 1
-  }
+window.addEventListener("load", () => {
+  setPinPositions();
+  buildTimeline(); // Build the timeline after layout is stable
+});
+window.addEventListener("resize", () => {
+  setPinPositions();
 });
 
-// Heron Island
-tl.set(pins.heron, { display: "block" }, 0)
-  .to(map, {
-    scale: 6.5 * getScaleFactor(),
-    x: -2159 * getScaleFactor(),
-    y: -655 * getScaleFactor(),
-    duration: 1
-  }, 0)
-  .set(pins.heron, { display: "none" }, 1);
+function buildTimeline() {
+  const scale = getScaleFactor();
+  const zooms = [
+    { pin: pins.heron, x: -2159 * scale, y: -655 * scale, scale: 6.5 },
+    { pin: pins.kili, x: -1544 * scale, y: -661 * scale, scale: 6.5 },
+    { pin: pins.haleakala, x: -170 * scale, y: -482 * scale, scale: 7 },
+    { pin: pins.montblanc, x: -1343 * scale, y: -313 * scale, scale: 6.5 },
+    { pin: pins.white, x: -772 * scale, y: -329 * scale, scale: 6.5 }
+  ];
 
-// Kilimanjaro
-tl.set(pins.kili, { display: "block" }, 1)
-  .to(map, {
-    scale: 6.5 * getScaleFactor(),
-    x: -1544 * getScaleFactor(),
-    y: -661 * getScaleFactor(),
-    duration: 1
-  }, 1)
-  .set(pins.kili, { display: "none" }, 2);
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#scroll-map-wrapper",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      pin: "#scroll-map",
+      anticipatePin: 1
+    }
+  });
 
-// Haleakala
-tl.set(pins.haleakala, { display: "block" }, 2)
-  .to(map, {
-    scale: 7 * getScaleFactor(),
-    x: -170 * getScaleFactor(),
-    y: -482 * getScaleFactor(),
-    duration: 1
-  }, 2)
-  .set(pins.haleakala, { display: "none" }, 3);
+  // Build the animation loop
+  zooms.forEach((z, i) => {
+    const base = i * 2;
 
-// Mont Blanc
-tl.set(pins.montblanc, { display: "block" }, 3)
-  .to(map, {
-    scale: 6.5 * getScaleFactor(),
-    x: -1343 * getScaleFactor(),
-    y: -313 * getScaleFactor(),
-    duration: 1
-  }, 3)
-  .set(pins.montblanc, { display: "none" }, 4);
+    // Zoom in to location
+    tl.to(map, {
+      scale: z.scale,
+      x: z.x,
+      y: z.y,
+      duration: 1
+    }, base);
 
-// White Mountains
-tl.set(pins.white, { display: "block" }, 4)
-  .to(map, {
-    scale: 6.5 * getScaleFactor(),
-    x: -772 * getScaleFactor(),
-    y: -329 * getScaleFactor(),
-    duration: 1
-  }, 4)
-  // Don't hide this one unless you want the final view cleared
-  .set(pins.white, { display: "none" }, 5);
+    // Show icon during zoom range
+    tl.set(z.pin, { display: "block" }, base + 0.3);
+    tl.set(z.pin, { display: "none" }, base + 1);
 
+    // Zoom back out before next
+    tl.to(map, {
+      scale: 1,
+      x: 0,
+      y: 0,
+      duration: 1
+    }, base + 1);
+  });
+}
 </script>
-
