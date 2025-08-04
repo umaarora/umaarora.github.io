@@ -65,28 +65,28 @@ const pins = {
 };
 
 // Set icon positions relative to the map (absolute inside container)
-pins.heron.style.left = "1115px";
-pins.heron.style.top = "378px";
+pins.heron.style.left = "2374px";
+pins.heron.style.top = "813px";
 
-pins.kili.style.left = "722px";
-pins.kili.style.top = "310px";
+pins.kili.style.left = "1534px";
+pins.kili.style.top = "666px";
 
-pins.haleakala.style.left = "78px";
-pins.haleakala.style.top = "232px";
+pins.haleakala.style.left = "175px";
+pins.haleakala.style.top = "499px";
 
-pins.montblanc.style.left = "630px";
-pins.montblanc.style.top = "141px";
+pins.montblanc.style.left = "1348px";
+pins.montblanc.style.top = "306px";
 
-pins.white.style.left = "361px";
-pins.white.style.top = "153px";
+pins.white.style.left = "775px";
+pins.white.style.top = "330px";
 
 // Create scroll regions (each region = 100vh)
 const zooms = [
-  { scale: 6.5, x: -1115, y: -378, pin: pins.heron },
-  { scale: 6.5, x: -722, y: -310, pin: pins.kili },
-  { scale: 7,   x: -78,  y: -232, pin: pins.haleakala },
-  { scale: 6.5, x: -630, y: -141, pin: pins.montblanc },
-  { scale: 6.5, x: -361, y: -153, pin: pins.white }
+  { scale: 6.5, x: -2374, y: -813, pin: pins.heron },
+  { scale: 6.5, x: -1534, y: -666, pin: pins.kili },
+  { scale: 7,   x: -175,  y: -499, pin: pins.haleakala },
+  { scale: 6.5, x: -1348, y: -306, pin: pins.montblanc },
+  { scale: 6.5, x: -775, y: -330, pin: pins.white }
 ];
 
 // Hide all pins initially
@@ -107,8 +107,8 @@ const tl = gsap.timeline({
 tl.set(pins.heron, { display: "block" }, 0)
   .to(map, {
     scale: 6.5,
-    x: -1115,
-    y: -378,
+    x: -2374,
+    y: -813,
     duration: 1
   }, 0)
   .set(pins.heron, { display: "none" }, 1);
@@ -117,8 +117,8 @@ tl.set(pins.heron, { display: "block" }, 0)
 tl.set(pins.kili, { display: "block" }, 1)
   .to(map, {
     scale: 6.5,
-    x: -722,
-    y: -310,
+    x: -1534,
+    y: -666,
     duration: 1
   }, 1)
   .set(pins.kili, { display: "none" }, 2);
@@ -127,8 +127,8 @@ tl.set(pins.kili, { display: "block" }, 1)
 tl.set(pins.haleakala, { display: "block" }, 2)
   .to(map, {
     scale: 7,
-    x: -78,
-    y: -232,
+    x: -175,
+    y: -499,
     duration: 1
   }, 2)
   .set(pins.haleakala, { display: "none" }, 3);
@@ -137,8 +137,8 @@ tl.set(pins.haleakala, { display: "block" }, 2)
 tl.set(pins.montblanc, { display: "block" }, 3)
   .to(map, {
     scale: 6.5,
-    x: -630,
-    y: -141,
+    x: -1348,
+    y: -306,
     duration: 1
   }, 3)
   .set(pins.montblanc, { display: "none" }, 4);
@@ -147,8 +147,8 @@ tl.set(pins.montblanc, { display: "block" }, 3)
 tl.set(pins.white, { display: "block" }, 4)
   .to(map, {
     scale: 6.5,
-    x: -361,
-    y: -153,
+    x: -775,
+    y: -330,
     duration: 1
   }, 4)
   // Don't hide this one unless you want the final view cleared
