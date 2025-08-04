@@ -33,7 +33,7 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
       <img src="/assets/images/scuba.jpg" alt="Heron Island" />
     </a>
     <a href="https://bangaloremirror.indiatimes.com/opinion/sunday-read/on-top-of-the-world/articleshow/53890829.cms" class="map-pin" id="pin-kili" target="_blank">
-      <img src="/assets/images/summit.jpeg" alt="Kilimanjaro" />
+      <img src="/assets/images/mountain.png" alt="Kilimanjaro" />
     </a>
     <a href="/haleakala" class="map-pin" id="pin-haleakala" target="_blank">
       <img src="/assets/images/hike.jpg" alt="Haleakala" />
@@ -42,7 +42,7 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
       <img src="/assets/images/hike.jpg" alt="Mont Blanc" />
     </a>
     <a href="/white-mountains" class="map-pin" id="pin-white" target="_blank">
-      <img src="/assets/images/summit.jpeg" alt="White Mountains" />
+      <img src="/assets/images/mountain.png" alt="White Mountains" />
     </a>
 
 
