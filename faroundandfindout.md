@@ -60,8 +60,6 @@ const pins = {
   montblanc: document.getElementById("pin-montblanc"),
   white: document.getElementById("pin-white")
 };
-
-// Natural size of your image
 const naturalWidth = 2560;
 
 function getScaleFactor() {
@@ -69,44 +67,21 @@ function getScaleFactor() {
 }
 
 function setPinPositions() {
-  const scale = getScaleFactor();
-  pins.heron.style.left = `${2159 * scale}px`;
-  pins.heron.style.top = `${655 * scale}px`;
-
-  pins.kili.style.left = `${1544 * scale}px`;
-  pins.kili.style.top = `${661 * scale}px`;
-
-  pins.haleakala.style.left = `${170 * scale}px`;
-  pins.haleakala.style.top = `${482 * scale}px`;
-
-  pins.montblanc.style.left = `${1343 * scale}px`;
-  pins.montblanc.style.top = `${313 * scale}px`;
-
-  pins.white.style.left = `${772 * scale}px`;
-  pins.white.style.top = `${329 * scale}px`;
+  const s = getScaleFactor();
+  pins.heron.style.left = `${2159 * s}px`;
+  pins.heron.style.top = `${655 * s}px`;
+  pins.kili.style.left = `${1544 * s}px`;
+  pins.kili.style.top = `${661 * s}px`;
+  pins.haleakala.style.left = `${170 * s}px`;
+  pins.haleakala.style.top = `${482 * s}px`;
+  pins.montblanc.style.left = `${1343 * s}px`;
+  pins.montblanc.style.top = `${313 * s}px`;
+  pins.white.style.left = `${772 * s}px`;
+  pins.white.style.top = `${329 * s}px`;
 }
 
-window.addEventListener("load", () => {
-  map.addEventListener("load", () => {
-    setPinPositions();
-    buildTimeline(); // build once image is fully loaded and dimensions are correct
-  });
-
-  // Fallback: if the image is already cached
-  if (map.complete) {
-    setPinPositions();
-    buildTimeline();
-  }
-});
-
-window.addEventListener("resize", () => {
-  setPinPositions();
-  ScrollTrigger.getAll().forEach(t => t.kill()); // Remove old timeline
-  buildTimeline(); // Rebuild with new dimensions
-});
-
-
 function buildTimeline() {
+  ScrollTrigger.getAll().forEach(t => t.kill());
   const scale = getScaleFactor();
   const zooms = [
     { pin: pins.heron, x: -2159 * scale, y: -655 * scale, scale: 6.5 },
@@ -127,29 +102,26 @@ function buildTimeline() {
     }
   });
 
-  // Build the animation loop
   zooms.forEach((z, i) => {
     const base = i * 2;
 
-    // Zoom in to location
-    tl.to(map, {
-      scale: z.scale,
-      x: z.x,
-      y: z.y,
-      duration: 1
-    }, base);
-
-    // Show icon during zoom range
+    tl.to(map, { scale: z.scale, x: z.x, y: z.y, duration: 1 }, base);
     tl.set(z.pin, { display: "block" }, base + 0.3);
     tl.set(z.pin, { display: "none" }, base + 1);
-
-    // Zoom back out before next
-    tl.to(map, {
-      scale: 1,
-      x: 0,
-      y: 0,
-      duration: 1
-    }, base + 1);
+    tl.to(map, { scale: 1, x: 0, y: 0, duration: 1 }, base + 1);
   });
+}
+
+// Use ResizeObserver to rebuild after the map image resizes or loads
+const observer = new ResizeObserver(() => {
+  setPinPositions();
+  buildTimeline();
+});
+observer.observe(map);
+
+// In-case image was already loaded before JS runs
+if (map.complete) {
+  setPinPositions();
+  buildTimeline();
 }
 </script>
