@@ -87,12 +87,24 @@ function setPinPositions() {
 }
 
 window.addEventListener("load", () => {
-  setPinPositions();
-  buildTimeline(); // Build the timeline after layout is stable
+  map.addEventListener("load", () => {
+    setPinPositions();
+    buildTimeline(); // build once image is fully loaded and dimensions are correct
+  });
+
+  // Fallback: if the image is already cached
+  if (map.complete) {
+    setPinPositions();
+    buildTimeline();
+  }
 });
+
 window.addEventListener("resize", () => {
   setPinPositions();
+  ScrollTrigger.getAll().forEach(t => t.kill()); // Remove old timeline
+  buildTimeline(); // Rebuild with new dimensions
 });
+
 
 function buildTimeline() {
   const scale = getScaleFactor();
