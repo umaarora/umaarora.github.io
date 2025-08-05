@@ -25,7 +25,7 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
 <div id="scroll-map-wrapper" style="height: 1000vh;">
   <div id="scroll-map" style="position: relative; height: 100vh; overflow: hidden;">
     <img id="map-img" src="/assets/images/world-map.jpg"
-     style="width: 2560px; height: auto; position: sticky; top: 0; transform-origin: center center;" />
+     style="width: 2560px; height: auto; position: sticky; top: 0; transform-origin: top left;" />
 
     <!-- ICONS -->
     <a href="/heron-island" class="map-pin" id="pin-heron" target="_blank">
@@ -83,19 +83,16 @@ function setPinPositions() {
 function buildTimeline() {
   ScrollTrigger.getAll().forEach(t => t.kill());
   const scale = getScaleFactor();
-  const mapRect = map.getBoundingClientRect();
-  const naturalHeight = mapRect.height / scale; // Calculate natural height from current dimensions
-  
-  // With center transform origin, we need to offset from the center of the image
-  const centerX = (naturalWidth * scale) / 2;
-  const centerY = (naturalHeight * scale) / 2;
+  const mapContainer = document.getElementById("scroll-map");
+  const containerWidth = mapContainer.clientWidth;
+  const containerHeight = mapContainer.clientHeight;
   
   const zooms = [
-    { pin: pins.heron, x: centerX - (2159 * scale), y: centerY - (655 * scale), zoomScale: 6.5 },
-    { pin: pins.kili, x: centerX - (1544 * scale), y: centerY - (661 * scale), zoomScale: 6.5 },
-    { pin: pins.haleakala, x: centerX - (170 * scale), y: centerY - (482 * scale), zoomScale: 7 },
-    { pin: pins.montblanc, x: centerX - (1343 * scale), y: centerY - (313 * scale), zoomScale: 6.5 },
-    { pin: pins.white, x: centerX - (772 * scale), y: centerY - (329 * scale), zoomScale: 6.5 }
+    { pin: pins.heron, x: 2159 * scale, y: 655 * scale, zoomScale: 6.5 },
+    { pin: pins.kili, x: 1544 * scale, y: 661 * scale, zoomScale: 6.5 },
+    { pin: pins.haleakala, x: 170 * scale, y: 482 * scale, zoomScale: 7 },
+    { pin: pins.montblanc, x: 1343 * scale, y: 313 * scale, zoomScale: 6.5 },
+    { pin: pins.white, x: 772 * scale, y: 329 * scale, zoomScale: 6.5 }
   ];
 
   const tl = gsap.timeline({
@@ -111,11 +108,16 @@ function buildTimeline() {
 
   zooms.forEach((z, i) => {
     const base = i * 2;
+    
+    // Calculate translation to center the target point in viewport
+    // With top-left origin, we need to move the target point to the center of the container
+    const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
+    const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
     tl.to(map, { 
       scale: z.zoomScale, 
-      x: z.x, 
-      y: z.y, 
+      x: translateX, 
+      y: translateY, 
       duration: 1 
     }, base);
     tl.set(z.pin, { display: "block" }, base + 0.3);
