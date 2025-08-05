@@ -23,10 +23,9 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
 </style>
 
 <div id="scroll-map-wrapper" style="height: 1000vh;">
-  <div id="scroll-map" style="position: relative; height: 100vh;">
+  <div id="scroll-map" style="position: relative; height: 100vh; overflow: hidden;">
     <img id="map-img" src="/assets/images/world-map.jpg"
-     style="width: 2560px; height: auto; position: sticky; top: 0; transform-origin: top left;" />
-
+     style="width: 2560px; height: auto; position: sticky; top: 0; transform-origin: center center;" />
 
     <!-- ICONS -->
     <a href="/heron-island" class="map-pin" id="pin-heron" target="_blank">
@@ -84,12 +83,16 @@ function setPinPositions() {
 function buildTimeline() {
   ScrollTrigger.getAll().forEach(t => t.kill());
   const scale = getScaleFactor();
+  const mapRect = map.getBoundingClientRect();
+  const viewportCenterX = mapRect.width / 2;
+  const viewportCenterY = mapRect.height / 2;
+  
   const zooms = [
-    { pin: pins.heron, x: -2159 * scale, y: -655 * scale, scale: 6.5 },
-    { pin: pins.kili, x: -1544 * scale, y: -661 * scale, scale: 6.5 },
-    { pin: pins.haleakala, x: -170 * scale, y: -482 * scale, scale: 7 },
-    { pin: pins.montblanc, x: -1343 * scale, y: -313 * scale, scale: 6.5 },
-    { pin: pins.white, x: -772 * scale, y: -329 * scale, scale: 6.5 }
+    { pin: pins.heron, x: 2159 * scale, y: 655 * scale, zoomScale: 6.5 },
+    { pin: pins.kili, x: 1544 * scale, y: 661 * scale, zoomScale: 6.5 },
+    { pin: pins.haleakala, x: 170 * scale, y: 482 * scale, zoomScale: 7 },
+    { pin: pins.montblanc, x: 1343 * scale, y: 313 * scale, zoomScale: 6.5 },
+    { pin: pins.white, x: 772 * scale, y: 329 * scale, zoomScale: 6.5 }
   ];
 
   const tl = gsap.timeline({
@@ -105,8 +108,17 @@ function buildTimeline() {
 
   zooms.forEach((z, i) => {
     const base = i * 2;
+    
+    // Calculate the translation needed to center the zoom point
+    const translateX = viewportCenterX - z.x;
+    const translateY = viewportCenterY - z.y;
 
-    tl.to(map, { scale: z.scale, x: z.x, y: z.y, duration: 1 }, base);
+    tl.to(map, { 
+      scale: z.zoomScale, 
+      x: translateX, 
+      y: translateY, 
+      duration: 1 
+    }, base);
     tl.set(z.pin, { display: "block" }, base + 0.3);
     tl.set(z.pin, { display: "none" }, base + 1);
     tl.to(map, { scale: 1, x: 0, y: 0, duration: 1 }, base + 1);
