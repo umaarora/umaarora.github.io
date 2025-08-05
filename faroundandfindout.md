@@ -25,7 +25,8 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
 <div id="scroll-map-wrapper" style="height: 1000vh;">
   <div id="scroll-map" style="position: relative; height: 100vh;">
     <img id="map-img" src="/assets/images/world-map.jpg"
-         style="width:2560px; height:auto; position:sticky; top:0; transform-origin: top left;" />
+     style="width: 2560px; height: auto; position: sticky; top: 0; transform-origin: top left;" />
+
 
     <!-- ICONS -->
     <a href="/heron-island" class="map-pin" id="pin-heron" target="_blank">
