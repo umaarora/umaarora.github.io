@@ -114,7 +114,8 @@ function buildTimeline() {
     const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
     const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
-    tl.to(map, { 
+    // Zoom in: scale map and pins together
+    tl.to([map, ...Object.values(pins)], { 
       scale: z.zoomScale, 
       x: translateX, 
       y: translateY, 
@@ -122,7 +123,14 @@ function buildTimeline() {
     }, base);
     tl.set(z.pin, { display: "block" }, base + 0.3);
     tl.set(z.pin, { display: "none" }, base + 1);
-    tl.to(map, { scale: 1, x: 0, y: 0, duration: 1 }, base + 1);
+    
+    // Zoom out: reset map and pins together
+    tl.to([map, ...Object.values(pins)], { 
+      scale: 1, 
+      x: 0, 
+      y: 0, 
+      duration: 1 
+    }, base + 1);
   });
 }
 
