@@ -12,8 +12,9 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     width: 32px;
     height: 32px;
     transform: translate(-50%, -100%);
-    display: none;
+    display: block; /* Changed from none to block for debugging */
     z-index: 10;
+    background: red; /* Add red background to make pins visible even without images */
   }
 
   .map-pin img {
@@ -110,18 +111,12 @@ function buildTimeline() {
     const base = i * 2;
     
     // Calculate translation to center the target point in viewport
-    // With top-left origin, we need to move the target point to the center of the container
     const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
     const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
-    // Zoom in: scale map and translate pins (but don't scale pins)
+    // Zoom in: only transform the map
     tl.to(map, { 
       scale: z.zoomScale, 
-      x: translateX, 
-      y: translateY, 
-      duration: 1 
-    }, base);
-    tl.to(Object.values(pins), { 
       x: translateX, 
       y: translateY, 
       duration: 1 
@@ -129,14 +124,9 @@ function buildTimeline() {
     tl.set(z.pin, { display: "block" }, base + 0.3);
     tl.set(z.pin, { display: "none" }, base + 1);
     
-    // Zoom out: reset map and pins
+    // Zoom out: reset map
     tl.to(map, { 
       scale: 1, 
-      x: 0, 
-      y: 0, 
-      duration: 1 
-    }, base + 1);
-    tl.to(Object.values(pins), { 
       x: 0, 
       y: 0, 
       duration: 1 
