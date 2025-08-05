@@ -12,9 +12,8 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     width: 32px;
     height: 32px;
     transform: translate(-50%, -100%);
-    display: block; /* Changed from none to block for debugging */
+    display: none; /* Start hidden */
     z-index: 10;
-    background: red; /* Add red background to make pins visible even without images */
   }
 
   .map-pin img {
@@ -69,8 +68,8 @@ function getScaleFactor() {
 
 function setPinPositions() {
   const s = getScaleFactor();
-  pins.heron.style.left = `${2159 * s}px`;
-  pins.heron.style.top = `${655 * s}px`;
+  pins.heron.style.left = `${2374 * s}px`;
+  pins.heron.style.top = `${813 * s}px`;
   pins.kili.style.left = `${1544 * s}px`;
   pins.kili.style.top = `${661 * s}px`;
   pins.haleakala.style.left = `${170 * s}px`;
@@ -89,7 +88,7 @@ function buildTimeline() {
   const containerHeight = mapContainer.clientHeight;
   
   const zooms = [
-    { pin: pins.heron, x: 2159 * scale, y: 655 * scale, zoomScale: 6.5 },
+    { pin: pins.heron, x: 2374 * scale, y: 813 * scale, zoomScale: 6.5 },
     { pin: pins.kili, x: 1544 * scale, y: 661 * scale, zoomScale: 6.5 },
     { pin: pins.haleakala, x: 170 * scale, y: 482 * scale, zoomScale: 7 },
     { pin: pins.montblanc, x: 1343 * scale, y: 313 * scale, zoomScale: 6.5 },
@@ -114,18 +113,37 @@ function buildTimeline() {
     const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
     const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
-    // Zoom in: only transform the map
+    // Zoom in: transform both map and the current pin together
     tl.to(map, { 
       scale: z.zoomScale, 
       x: translateX, 
       y: translateY, 
       duration: 1 
     }, base);
-    tl.set(z.pin, { display: "block" }, base + 0.3);
-    tl.set(z.pin, { display: "none" }, base + 1);
     
-    // Zoom out: reset map
+    // Transform the current pin to stay with the map
+    tl.to(z.pin, { 
+      scale: z.zoomScale, 
+      x: translateX, 
+      y: translateY, 
+      duration: 1 
+    }, base);
+    
+    // Show pin when zoom reaches scale 5 (5/maxScale of the way through animation)
+    tl.set(z.pin, { display: "block" }, base + (5 / z.zoomScale));
+    
+    // Hide pin when zooming back out below scale 5 (during zoom out phase)
+    tl.set(z.pin, { display: "none" }, base + 1 + (1 - 5 / z.zoomScale));
+    
+    // Zoom out: reset both map and current pin
     tl.to(map, { 
+      scale: 1, 
+      x: 0, 
+      y: 0, 
+      duration: 1 
+    }, base + 1);
+    
+    tl.to(z.pin, { 
       scale: 1, 
       x: 0, 
       y: 0, 
