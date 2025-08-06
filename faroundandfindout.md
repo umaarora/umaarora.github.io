@@ -13,12 +13,12 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     height: 32px;
     transform: translate(-50%, -100%);
     z-index: 10;
-    background: red; /* Debug: red background to see pins even without images */
   }
 
   .map-pin img {
     width: 100%;
     height: auto;
+    /* This will be scaled down to counteract the parent's scale */
   }
 </style>
 
@@ -45,7 +45,9 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
   </div>
 </div>
 
-<a href="/faroundandfindout/" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: #007acc; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Back to Top</a>
+<div style="text-align: center; margin-top: 40px;">
+  <a href="/faroundandfindout/" style="display: inline-block; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; border: 2px solid currentColor;">Back to Top</a>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
@@ -117,40 +119,38 @@ function buildTimeline() {
     const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
     const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
-    // Zoom in on the map
-    tl.to(map, { 
+    // Zoom in on the map and pin
+    tl.to([map, z.pin], { 
       scale: z.zoomScale, 
       x: translateX, 
       y: translateY, 
       duration: 1 
     }, base);
     
-    // Animate the pin's position ONLY, without changing its scale
-    tl.to(z.pin, { 
-      x: translateX, 
-      y: translateY, 
-      duration: 1 
+    // Counter-scale the pin's image to keep its size constant
+    tl.to(z.pin.querySelector('img'), {
+      scale: 1 / z.zoomScale,
+      duration: 1
     }, base);
     
-    // Show the pin at 50% through zoom-in (simplified for testing)
-    tl.set(z.pin, { display: "block" }, base + 0.5);
+    // Show the pin for the current location when the zoom-in starts
+    tl.set(z.pin, { display: "block" }, base);
     
-    // Hide the pin at 50% through zoom-out (simplified for testing)  
-    tl.set(z.pin, { display: "none" }, base + 1.5);
+    // Hide the pin just as the map starts zooming out
+    tl.set(z.pin, { display: "none" }, base + 1);
 
-    // Zoom out the map
-    tl.to(map, { 
+    // Zoom out the map and pin
+    tl.to([map, z.pin], { 
       scale: 1, 
       x: 0, 
       y: 0, 
       duration: 1 
     }, base + 1);
-    
-    // Animate the pin's position ONLY, back to its original state
-    tl.to(z.pin, { 
-      x: 0, 
-      y: 0, 
-      duration: 1 
+
+    // Reset the pin's image scale
+    tl.to(z.pin.querySelector('img'), {
+      scale: 1,
+      duration: 1
     }, base + 1);
   });
 }
