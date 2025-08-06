@@ -104,8 +104,8 @@ function buildTimeline() {
     }
   });
 
-  // Make all pins visible from the start
-  gsap.set(Object.values(pins), { display: 'block', opacity: 1 });
+  // Initially hide all pins
+  gsap.set(Object.values(pins), { display: 'none' });
 
   zooms.forEach((z, i) => {
     const base = i * 2;
@@ -114,7 +114,7 @@ function buildTimeline() {
     const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
     const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
-    // Zoom in: transform both map and the current pin together
+    // Zoom in on the location
     tl.to([map, z.pin], { 
       scale: z.zoomScale, 
       x: translateX, 
@@ -122,7 +122,13 @@ function buildTimeline() {
       duration: 1 
     }, base);
     
-    // Zoom out: reset both map and current pin
+    // Show the pin for the current location when the zoom-in starts
+    tl.set(z.pin, { display: "block" }, base);
+    
+    // Hide the pin just as the map starts zooming out
+    tl.set(z.pin, { display: "none" }, base + 1);
+
+    // Zoom out to the default view
     tl.to([map, z.pin], { 
       scale: 1, 
       x: 0, 
@@ -145,5 +151,3 @@ if (map.complete) {
   buildTimeline();
 }
 </script>
----
-This video shows how to create a scroll-based zoom effect using GSAP's ScrollTrigger plugin, which is similar to what you're trying to achieve with your map.
