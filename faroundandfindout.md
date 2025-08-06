@@ -129,11 +129,11 @@ function buildTimeline() {
       duration: 1 
     }, base);
     
-    // Show the pin for the current location when the zoom-in starts
-    tl.set(z.pin, { display: "block" }, base);
+    // Show the pin when zoom reaches 5x (5/maxScale of the way through zoom-in)
+    tl.set(z.pin, { display: "block" }, base + (5 / z.zoomScale));
     
-    // Hide the pin just as the map starts zooming out
-    tl.set(z.pin, { display: "none" }, base + 1);
+    // Hide the pin when zoom drops below 5x (during zoom-out phase)
+    tl.set(z.pin, { display: "none" }, base + 1 + (1 - 5 / z.zoomScale));
 
     // Zoom out the map
     tl.to(map, { 
