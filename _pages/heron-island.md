@@ -1,0 +1,14 @@
+---
+layout: post
+title: Marine Biology Research Quarter
+permalink: /heron-island/
+---
+
+The UCLA Marine Biology Quarter in the fall of 2015 was a transformative chapter in my life — one that pushed my scientific curiosity, collaborative skills, and personal sense of awe for the ocean to new depths. I became dive certified that summer in preparation for the program, knowing that we were headed into the field to conduct real research — but nothing could have prepared me for what was to come. Alongside 13 other students, I traveled to Queensland, Australia, to spend several weeks immersed in marine ecosystems, where classroom theory was replaced by coral reefs, tide pools, and hands-on experimentation.
+
+Our first stop was Stradbroke Island, where we had three weeks to design, execute, and analyze a full research project. I worked closely with a partner to study the feeding behavior of a fish species known as the leatherjacket, which exhibits color changes depending on its diet. Designing an experiment with limited time, tools, and field constraints was a creative challenge: we caught fish with hand nets, collected different species of seagrass, and transformed them into gelatin “pancakes” to standardize our feeding trials. Every detail — from how we prepared the food to how we measured the fish's responses — required critical thinking, teamwork, and improvisation. We learned quickly how to adjust methods on the fly, record meticulous data underwater, and troubleshoot with what was available in the field.
+
+After collecting our data, we traveled to a remote island south of the Great Barrier Reef — a place so small you could walk its circumference in 20 minutes. The island had only a single hotel and one research station, which made it the perfect quiet haven to dive into data analysis and writing. We had one week to finalize our findings and produce a full research paper and presentation. It was a crash course in time management, scientific writing, and collaborative communication under pressure. But amid the intensity, there was also magic: snorkeling through coral gardens after a long day of writing, watching sea turtles drift by in the shallows, and one unforgettable night when we witnessed a sea turtle nesting on the beach under the stars.
+
+To cap off the quarter, I traveled to Cairns and dove along the Great Barrier Reef — a surreal and emotional moment after spending weeks studying marine life up close. The entire Marine Biology Quarter was more than just a class. It was a full scientific immersion, where I learned how to ask meaningful questions, solve unexpected problems, work closely with others, and maintain wonder while working hard. It deepened both my technical skill set and my commitment to marine science, setting the tone for the kind of scientist — and person — I strive to be.
+

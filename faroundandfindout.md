@@ -13,6 +13,7 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     height: 32px;
     transform: translate(-50%, -100%);
     z-index: 10;
+    background: red; /* Debug: red background to see pins even without images */
   }
 
   .map-pin img {
@@ -43,6 +44,8 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     </a>
   </div>
 </div>
+
+<a href="/faroundandfindout/" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: #007acc; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Back to Top</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
@@ -129,11 +132,11 @@ function buildTimeline() {
       duration: 1 
     }, base);
     
-    // Show the pin when zoom reaches 5x (5/maxScale of the way through zoom-in)
-    tl.set(z.pin, { display: "block" }, base + (5 / z.zoomScale));
+    // Show the pin at 50% through zoom-in (simplified for testing)
+    tl.set(z.pin, { display: "block" }, base + 0.5);
     
-    // Hide the pin when zoom drops below 5x (during zoom-out phase)
-    tl.set(z.pin, { display: "none" }, base + 1 + (1 - 5 / z.zoomScale));
+    // Hide the pin at 50% through zoom-out (simplified for testing)  
+    tl.set(z.pin, { display: "none" }, base + 1.5);
 
     // Zoom out the map
     tl.to(map, { 

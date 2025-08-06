@@ -36,6 +36,11 @@ theme_config:
     title_blog: Blog
     title_old_projects: Volunteer
 
+collections:
+  pages:
+    output: true
+    permalink: /:slug/
+
 highlighter: rouge
 
 sass:
