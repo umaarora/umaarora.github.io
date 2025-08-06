@@ -12,7 +12,6 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     width: 32px;
     height: 32px;
     transform: translate(-50%, -100%);
-    display: none; /* Start hidden */
     z-index: 10;
   }
 
@@ -27,7 +26,6 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     <img id="map-img" src="/assets/images/world-map.jpg"
      style="width: 2560px; height: auto; position: sticky; top: 0; transform-origin: top left;" />
 
-    <!-- ICONS -->
     <a href="/heron-island" class="map-pin" id="pin-heron" target="_blank">
       <img src="/assets/images/scuba.jpg" alt="Heron Island" />
     </a>
@@ -106,6 +104,9 @@ function buildTimeline() {
     }
   });
 
+  // Make all pins visible from the start
+  gsap.set(Object.values(pins), { display: 'block', opacity: 1 });
+
   zooms.forEach((z, i) => {
     const base = i * 2;
     
@@ -114,36 +115,15 @@ function buildTimeline() {
     const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
     // Zoom in: transform both map and the current pin together
-    tl.to(map, { 
+    tl.to([map, z.pin], { 
       scale: z.zoomScale, 
       x: translateX, 
       y: translateY, 
       duration: 1 
     }, base);
-    
-    // Transform the current pin to stay with the map
-    tl.to(z.pin, { 
-      scale: z.zoomScale, 
-      x: translateX, 
-      y: translateY, 
-      duration: 1 
-    }, base);
-    
-    // Show pin when zoom reaches scale 5 (5/maxScale of the way through animation)
-    tl.set(z.pin, { display: "block" }, base + (5 / z.zoomScale));
-    
-    // Hide pin when zooming back out below scale 5 (during zoom out phase)
-    tl.set(z.pin, { display: "none" }, base + 1 + (1 - 5 / z.zoomScale));
     
     // Zoom out: reset both map and current pin
-    tl.to(map, { 
-      scale: 1, 
-      x: 0, 
-      y: 0, 
-      duration: 1 
-    }, base + 1);
-    
-    tl.to(z.pin, { 
+    tl.to([map, z.pin], { 
       scale: 1, 
       x: 0, 
       y: 0, 
@@ -165,3 +145,5 @@ if (map.complete) {
   buildTimeline();
 }
 </script>
+---
+This video shows how to create a scroll-based zoom effect using GSAP's ScrollTrigger plugin, which is similar to what you're trying to achieve with your map.
