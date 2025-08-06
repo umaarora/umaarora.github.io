@@ -114,9 +114,16 @@ function buildTimeline() {
     const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
     const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
 
-    // Zoom in on the location
-    tl.to([map, z.pin], { 
+    // Zoom in on the map
+    tl.to(map, { 
       scale: z.zoomScale, 
+      x: translateX, 
+      y: translateY, 
+      duration: 1 
+    }, base);
+    
+    // Animate the pin's position ONLY, without changing its scale
+    tl.to(z.pin, { 
       x: translateX, 
       y: translateY, 
       duration: 1 
@@ -128,9 +135,16 @@ function buildTimeline() {
     // Hide the pin just as the map starts zooming out
     tl.set(z.pin, { display: "none" }, base + 1);
 
-    // Zoom out to the default view
-    tl.to([map, z.pin], { 
+    // Zoom out the map
+    tl.to(map, { 
       scale: 1, 
+      x: 0, 
+      y: 0, 
+      duration: 1 
+    }, base + 1);
+    
+    // Animate the pin's position ONLY, back to its original state
+    tl.to(z.pin, { 
       x: 0, 
       y: 0, 
       duration: 1 
