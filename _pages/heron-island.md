@@ -6,13 +6,13 @@ permalink: /heron-island/
 
 Even though this study abroad program only lasted six weeks, it was easily one of the best experiences of my life. I got to check off some incredible places from my travel list: North Stradbroke Island → Brisbane → Gladstone → Heron Island → Cairns → Sydney — and every stop had its own kind of magic.
 
-![MBQ crew](/assets/images/heron-island/MBQ-crew.jpg)
+![MBQ crew](/assets/images/heron-island/MBQ-crew)
 
 ![let's go](/assets/images/heron-island/beach.jpg)
 
 We kicked things off living on North Stradbroke Island, just off the coast of Brisbane. Mornings started with sunshine blasting through the windows and hundreds of birds chirping at 5 a.m. — nature's very effective alarm clock. We swam at nearly every beach on the island, and most of our days were filled with fieldwork: collecting samples, seining the shallows, running after ghost crabs (one poor guy named ET had a whole squad of us chasing him), and laughing like kids when something cool turned up in the net.
 
-![Mangroves](/assets/images/heron-island/mangroves.jpg)
+![Mangroves](/assets/images/heron-island/mangroves)
 
 For our research project, my partner and I studied the feeding behavior of a fish called the leatherjacket — it actually changes color based on what it eats! We designed an experiment that fit into our 3-week timeline, caught the fish ourselves with hand nets, and made these weird little “seagrass jelly pancakes” to test their preferences. It was such a mix of creativity, problem-solving, and actual marine science. We even had to let our study fish go after we were done — a bittersweet moment (and yes, some tears were shed).
 
@@ -20,9 +20,9 @@ For our research project, my partner and I studied the feeding behavior of a fis
 
 ![Leatherjacket fish measurement](/assets/images/heron-island/leatherjacket.jpg)
 
-![Seagrass collecting](/assets/images/heron-island/seagrass-collecting.jpg)
+![Seagrass collecting](/assets/images/heron-island/seagrass-collecting)
 
-![Seagrass blending](/assets/images/heron-island/seagrass-smoothie.jpg)
+![Seagrass blending](/assets/images/heron-island/seagrass-smoothie)
 
 ![Seagrass pancakes](/assets/images/heron-island/seagrass-pancake.jpg)
 
@@ -32,7 +32,7 @@ During our day trip to Brisbane, we visited the Lone Pine Koala Sanctuary where 
 
 ![Me holding koala](/assets/images/heron-island/koala-and-me.jpg)
 
-![Koala coffee](/assets/images/heron-island/koala-coffee.jpg)
+![Koala coffee](/assets/images/heron-island/koala-coffee)
 
 ![Kangaroo](/assets/images/heron-island/kangaroo.jpg)
 
@@ -50,10 +50,9 @@ After that, we ferried out to Heron Island, this tiny coral cay on the southern 
 
 I got to dive on the reef, which was incredible, and snorkel every day just steps from where we slept. We even witnessed a sea turtle nesting at night — one of the most awe-inspiring, quiet moments I’ve ever had in nature. We spent the week finishing up our research projects and writing full scientific reports, all while still managing to sneak in daily sea creature sightings and a hilarious reenactment Thanksgiving dinner with everyone playing classic family roles.
 
-![Heron island](/assets/images/heron-island/heron-island-research-station.jpg)
+![Heron island](/assets/images/heron-island/heron-island-research-station)
 
 ![Coral](/assets/images/heron-island/coral2.jpg)
-
 
 ![Turtle](/assets/images/heron-island/turtle.jpg)
 
@@ -64,6 +63,10 @@ I got to dive on the reef, which was incredible, and snorkel every day just step
 Our last official stop was Gladstone, where we wrapped up the program with a group taco night and a very spirited rendition of The Sound of Music, complete with wine, lederhosen impressions, and slightly chaotic singing.
 
 After the program ended, a few of us headed up to Cairns, where I got to dive the Great Barrier Reef again, this time off the coast. We also went white water rafting — I did fall out of the boat — and saw crocodiles in the rainforest. I (mostly) climbed Mt. Sorrow and finally ended the trip in Sydney, where I stayed with a high school friend. We took selfies with the Opera House, hiked the Blue Mountains, found ocean blowholes, and roamed the city’s small cafes and shops like locals.
+
+![Heron island](/assets/images/heron-island/fish.JPG)
+
+![Heron island](/assets/images/heron-island/dive.jpg)
 
 ![Sydney](/assets/images/heron-island/sisters.jpg)
 
