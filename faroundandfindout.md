@@ -13,6 +13,7 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     height: 32px;
     transform: translate(-50%, -100%);
     z-index: 10;
+    display: block !important; /* Force visible for debugging */
   }
 
   .map-pin img {
@@ -45,7 +46,7 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
   </div>
 </div>
 
-<div style="text-align: center; margin-top: 40px;">
+<div style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(100,100,100,0.2);">
   <a href="/faroundandfindout/" style="display: inline-block; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; border: 2px solid currentColor;">Back to Top</a>
 </div>
 
@@ -137,15 +138,15 @@ function buildTimeline() {
       duration: 1
     }, base);
     
-    // Position pin at viewport center when zoom reaches 6x
+    // Position pin at viewport center when zoom reaches 5x
     tl.set(z.pin, { 
       left: `${viewportCenterX}px`,
       top: `${viewportCenterY}px`,
       display: "block" 
-    }, base + (6 / z.zoomScale));
+    }, base + (5 / z.zoomScale));
     
-    // Hide pin when zoom drops below 6x during zoom out
-    tl.set(z.pin, { display: "none" }, base + 1 + (1 - 6 / z.zoomScale));
+    // Hide pin when zoom drops below 5x during zoom out
+    tl.set(z.pin, { display: "none" }, base + 1 + (1 - 5 / z.zoomScale));
 
     // Zoom out the map and pin
     tl.to([map, z.pin], { 
