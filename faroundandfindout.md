@@ -13,7 +13,6 @@ Pushing limits, chasing peaks, and collecting stories the hard way.
     height: 32px;
     transform: translate(-50%, -100%);
     z-index: 10;
-    display: block !important; /* Force visible for debugging */
   }
 
   .map-pin img {
@@ -124,21 +123,15 @@ function buildTimeline() {
     const translateX = viewportCenterX - (z.x * z.zoomScale);
     const translateY = viewportCenterY - (z.y * z.zoomScale);
 
-    // Zoom in on the map and pin
-    tl.to([map, z.pin], { 
+    // Zoom in on the map only
+    tl.to(map, { 
       scale: z.zoomScale, 
       x: translateX, 
       y: translateY, 
       duration: 1 
     }, base);
     
-    // Counter-scale the pin's image to keep its size constant
-    tl.to(z.pin.querySelector('img'), {
-      scale: 1 / z.zoomScale,
-      duration: 1
-    }, base);
-    
-    // Position pin at viewport center when zoom reaches 5x
+    // Show pin at viewport center when zoom reaches 5x
     tl.set(z.pin, { 
       left: `${viewportCenterX}px`,
       top: `${viewportCenterY}px`,
@@ -148,18 +141,12 @@ function buildTimeline() {
     // Hide pin when zoom drops below 5x during zoom out
     tl.set(z.pin, { display: "none" }, base + 1 + (1 - 5 / z.zoomScale));
 
-    // Zoom out the map and pin
-    tl.to([map, z.pin], { 
+    // Zoom out the map only
+    tl.to(map, { 
       scale: 1, 
       x: 0, 
       y: 0, 
       duration: 1 
-    }, base + 1);
-
-    // Reset the pin's image scale
-    tl.to(z.pin.querySelector('img'), {
-      scale: 1,
-      duration: 1
     }, base + 1);
     
     // Reset pin position after zoom out
