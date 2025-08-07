@@ -90,6 +90,10 @@ function buildTimeline() {
   const containerWidth = mapContainer.clientWidth;
   const containerHeight = mapContainer.clientHeight;
   
+  // Calculate viewport center
+  const viewportCenterX = containerWidth / 2;
+  const viewportCenterY = containerHeight / 2;
+  
   const zooms = [
     { pin: pins.heron, x: 2374 * scale, y: 813 * scale, zoomScale: 6.5 },
     { pin: pins.kili, x: 1544 * scale, y: 661 * scale, zoomScale: 6.5 },
@@ -116,8 +120,8 @@ function buildTimeline() {
     const base = i * 2;
     
     // Calculate translation to center the target point in viewport
-    const translateX = (containerWidth / 2) - (z.x * z.zoomScale);
-    const translateY = (containerHeight / 2) - (z.y * z.zoomScale);
+    const translateX = viewportCenterX - (z.x * z.zoomScale);
+    const translateY = viewportCenterY - (z.y * z.zoomScale);
 
     // Zoom in on the map and pin
     tl.to([map, z.pin], { 
@@ -133,11 +137,15 @@ function buildTimeline() {
       duration: 1
     }, base);
     
-    // Show the pin for the current location when the zoom-in starts
-    tl.set(z.pin, { display: "block" }, base);
+    // Position pin at viewport center when zoom reaches 6x
+    tl.set(z.pin, { 
+      left: `${viewportCenterX}px`,
+      top: `${viewportCenterY}px`,
+      display: "block" 
+    }, base + (6 / z.zoomScale));
     
-    // Hide the pin just as the map starts zooming out
-    tl.set(z.pin, { display: "none" }, base + 1);
+    // Hide pin when zoom drops below 6x during zoom out
+    tl.set(z.pin, { display: "none" }, base + 1 + (1 - 6 / z.zoomScale));
 
     // Zoom out the map and pin
     tl.to([map, z.pin], { 
@@ -152,6 +160,9 @@ function buildTimeline() {
       scale: 1,
       duration: 1
     }, base + 1);
+    
+    // Reset pin position after zoom out
+    tl.call(() => setPinPositions(), [], base + 2);
   });
 }
 
