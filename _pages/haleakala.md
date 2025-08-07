@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Into the Crater (Apparently): A Tale of Friendship and Hitchhiking in Haleakalā
+title: "Into the Crater (Apparently): A Tale of Friendship and Hitchhiking in Haleakalā"
 permalink: /haleakala/
 ---
 
